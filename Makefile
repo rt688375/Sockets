@@ -11,7 +11,7 @@ all:
 push: 
 	git add . 
 	git commit -m 'Commit from make'
-	git push 
+	git push https://github.com/rt688375/Sockets.git
 
 pull:
 	git pull
