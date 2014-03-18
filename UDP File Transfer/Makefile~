@@ -1,6 +1,6 @@
 #Variable para guardar los objetos a compilar
-OBJS = Server.c
-OBJS2 = Cliente.c
+OBJS = UDP_Server.c
+OBJS2 = UDP_Client.c
 
 #Variable para el compulador
 CC = gcc

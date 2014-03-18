@@ -1,32 +1,17 @@
-#Makefile
-#
-# Instrucciones para compilar
+#Variable para guardar los objetos a compilar
+OBJS = Server.c
+OBJS2 = Cliente.c
 
-OBJS1 = Cliente.o
-OBJS2 = Server.c
+#Variable para el compulador
 CC = gcc
-CFLAGS = -Wall -O2
 
-all: $(OBJS1) Cliente
-	
+#Variable para guardar las opciones del compilador
+CCFLAGS = -Wall -o
+#-Wall indica al compilador que muestre todos los warnings existentes
 
-cliente: $(OBJS1)
-	$(CC) $(CFLAGS) $^ -o cliente
+all: $(OBJS) Server Client
 
-servidor: $(OBJS2)
-	$(CC) $(CFLAGS) $^ -o servidor
-
-%.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
-
-clean:
-	rm -rf $(OBJS) cliente
-	rm -rf $(OBJS) servidor
-
-push: 
-	git add . 
-	git commit -m 'Commit from make'
-	git push
-
-pull:
-	git pull
+Server: $(OBJS)
+		$(CC) $(OBJS) $(CCFLAGS) Server
+Client: $(OBJS2)
+		$(CC) $(OBJS2) $(CCFLAGS) Client

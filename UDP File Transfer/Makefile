@@ -1,6 +1,6 @@
 #Variable para guardar los objetos a compilar
-OBJS = Server.c
-OBJS2 = Cliente.c
+OBJS = UDP_Server.c
+OBJS2 = UDP_Client.c
 
 #Variable para el compulador
 CC = gcc
@@ -9,7 +9,7 @@ CC = gcc
 CCFLAGS = -Wall -o
 #-Wall indica al compilador que muestre todos los warnings existentes
 
-all: $(OBJS) UDPServer UDPClient
+all: $(OBJS) Server Client
 
 Server: $(OBJS)
 		$(CC) $(OBJS) $(CCFLAGS) UDPServer
